@@ -4,32 +4,10 @@ import { Data } from '@/pages';
 import Head from 'next/head';
 import utilStyles from '@/styles/utiles.module.scss';
 import Date from '@/components/Date';
-
-interface ParamsProps {
-  params: Data;
-}
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 interface PostProps {
   postData: Data;
-}
-
-export async function getStaticPaths() {
-  const paths = getAllPostIds();
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }: ParamsProps) {
-  const postData = await getPostData(params.id);
-
-  return {
-    props: {
-      postData,
-    },
-  };
 }
 
 export default function Post({ postData }: PostProps) {
@@ -49,3 +27,20 @@ export default function Post({ postData }: PostProps) {
     </Layout>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getAllPostIds();
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticPropsGetStaticProps: GetStaticProps = async ({ params }) => {
+  const postData = await getPostData(params?.id as string);
+  return {
+    props: {
+      postData,
+    },
+  };
+};
