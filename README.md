@@ -1,3 +1,3 @@
-## 페이지 URL
+# learn-next
 
-<a href="https://next-gamma-three-21.vercel.app/" target="_blank" title="새창" style="color: #000;">페이지 :arrow_forward:</a>
+[Next.js Learn](https://nextjs.org/learn/foundations/about-nextjs?utm_source=next-site&utm_medium=nav-cta&utm_campaign=next-website) 학습 완료
